@@ -1,0 +1,24 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/profileimage/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 10000
+        }
+      ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "UpstreamPathTemplate": "/profiles/{id}/avator",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DelegatingHandlers": [
+        "AppendBlobAuthHeaderHandler",
+        "RemoveUnexpectedBlobResponseHeaderHandler"
+      ]
+    }
+  ]
+}
